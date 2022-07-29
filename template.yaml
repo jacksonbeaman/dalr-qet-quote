@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: getQuote Lambda function
+Globals:
+  Function:
+    MemorySize: 128
+    Timeout: 3
+    Handler: index.handler
+    Runtime: nodejs14.x
+Resources:
+  GetQuoteFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: get-quote
