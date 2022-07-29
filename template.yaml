@@ -11,4 +11,4 @@ Resources:
   GetQuoteFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: get-quote
+      CodeUri: src/
