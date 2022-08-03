@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: sam-dalr-get-quote-lambda
+Transform:
+- AWS::Serverless-2016-10-31
+Globals:
+  Function:
+    Tracing: Active
+  Api:
+    TracingEnabled: true
+Resources:
+  getQuoteFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/index.handler
+      Runtime: nodejs14.x
+      Architectures:
+      - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: A endpoint for getting quotes for stock prices from the IEX API.
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /
+            Method: GET
+      CodeUri: getQuoteFunction
+    Metadata:
+      SamResourceId: getQuoteFunction
+Outputs:
+  WebEndpoint:
+    Description: API Gateway endpoint URL for Prod stage
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/
