@@ -6,11 +6,8 @@ phases:
       - n 14.18.3
   build:
     commands:
-       - npm i && npm run test
-       - aws cloudformation package --template-file template.yaml --s3-bucket dalr-get-quote-deployment-artifacts --output-template-file outputTemplate.yaml
-  build:
-    commands:
       # Use AWS SAM to package the application by using AWS CloudFormation
+      - npm i && npm run test
       - aws cloudformation package --template template.yaml --s3-bucket $S3_BUCKET --output-template template-export.yml
 artifacts:
   type: zip
