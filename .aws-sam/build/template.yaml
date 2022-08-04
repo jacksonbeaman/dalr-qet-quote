@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: sam-dalr-get-quote-lambda
 Transform:
-- AWS::Serverless-2016-10-31
+  - AWS::Serverless-2016-10-31
 Globals:
   Function:
     Tracing: Active
@@ -14,7 +14,7 @@ Resources:
       Handler: src/index.handler
       Runtime: nodejs14.x
       Architectures:
-      - x86_64
+        - x86_64
       MemorySize: 128
       Timeout: 100
       Description: A endpoint for getting quotes for stock prices from the IEX API.
@@ -24,7 +24,7 @@ Resources:
           Properties:
             Path: /
             Method: GET
-      CodeUri: getQuoteFunction
+      i: getQuoteFunction
     Metadata:
       SamResourceId: getQuoteFunction
 Outputs:
