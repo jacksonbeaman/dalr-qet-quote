@@ -10,7 +10,10 @@ exports.handler = async (event, context) => {
       error.statusCode = 400;
       throw error;
     }
-    const iexToken = process.env.IEX_TOKEN;
+    const iexToken =
+      process.env.NODE_ENV === 'development'
+        ? process.env.IEX_TOKEN
+        : process.env.IEX_TOKEN_PROD;
 
     const data = await getQuote.getQuote(symbol, iexToken);
 

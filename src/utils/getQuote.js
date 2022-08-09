@@ -4,7 +4,10 @@ const getQuote = async (symbol, iexToken) => {
   try {
     const settings = {
       url: `/${symbol}/quote?token=${iexToken}`,
-      baseURL: `https://sandbox.iexapis.com/stable/stock`,
+      baseURL:
+        process.env.NODE_ENV === 'development'
+          ? `https://sandbox.iexapis.com/stable/stock`
+          : `https://cloud.iexapis.com/stable/stock`,
       method: 'get',
       timeout: 0,
     };
