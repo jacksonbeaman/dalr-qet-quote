@@ -14,8 +14,7 @@
         {
           "httpApi": "GET /quote"
         }
-      ],
-      "environment": { "IEX_TOKEN": "Tpk_4120a800c2054d06ac06e68db942b93b" }
+      ]
     }
   }
 }
